@@ -8,6 +8,19 @@ import matplotlib.pyplot as plt
 if __name__ == '__main__':
    # Load mosaic1
     img = np.loadtxt('mosaic1_train.txt', delimiter=',')
+    '''
+    plt.figure()
+    plt.imshow(img)
+    plt.show()
+    '''
+
+    # Training mask
+    mask = np.loadtxt('training_mask.txt', delimiter=',')
+    '''
+    plt.figure()
+    plt.imshow(mask)
+    plt.show()
+    '''
 
     # Load mosaic2_test
     img_test1 = np.loadtxt('mosaic2_test.txt', delimiter=',')
@@ -20,9 +33,6 @@ if __name__ == '__main__':
 
     # test mask 2
     mask_test2 = np.loadtxt('mask3_mosaic3_test.txt', delimiter=',')
-
-    # Training mask
-    mask = np.loadtxt('training_mask.txt', delimiter=',')
 
     g2 = glcm(img, distance=1, angle=0.0, levels=16, window_size=29) 
     g4 = glcm(img, distance=3, angle=45.0, levels=16, window_size=29)
