@@ -6,7 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Combines multiple gaussian models and predicts the class from the most confident
-class oneVsRest():
+class Ensamble():
     def __init__(self, sub_classifiers):
         self.sub_classifiers = sub_classifiers
         self.num_class = sub_classifiers[0].class_num

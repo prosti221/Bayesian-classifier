@@ -1,5 +1,5 @@
 from gaussian_classifier import *
-from one_vs_rest import *
+from ensamble import *
 from glcm import *
 from scipy.io import loadmat
 import numpy as np
@@ -71,7 +71,7 @@ if __name__ == '__main__':
         model.predict(feat[i])
         gaus_models.append(model)
 
-    classifier = oneVsRest(np.array(gaus_models))
+    classifier = Ensamble(np.array(gaus_models))
     preds = classifier.predict()
 
     print('Multi-gaussian classifier accuracy on training data: %f' %(classifier.accuracy))
@@ -100,7 +100,7 @@ if __name__ == '__main__':
     for i in range(len(feat_test1)):
         gaus_models[i].predict(feat_test1[i])
 
-    classifier_test1 = oneVsRest(np.array(gaus_models))
+    classifier_test1 = Ensamble(np.array(gaus_models))
     preds_test1 = classifier_test1.predict()
 
     # Setting accuracy and confusion matrix based on test mask
